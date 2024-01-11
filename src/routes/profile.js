@@ -1,23 +1,23 @@
 const express = require('express');
 const renderTemplate = require('../lib/render');
 const Profile = require('../views/Profile');
-const Edit = require('../views/Edit')
+const Edit = require('../views/Edit');
 const { User, Review } = require('../../db/models');
 
 const profileRouter = express.Router();
 
 profileRouter.get('/', async (req, res) => {
-    console.log(req.session)
+  console.log(req.session);
   const { login } = req.session;
   const user = await User.findOne({ where: { login } });
   if (!user) {
     return res.status(404).send('User not found');
   }
   const userReview = await Review.findAll({
-    where: { user_id: user.id },
+    where: { user_id: user.id }
   });
-  console.log(userReview.length)
-  renderTemplate(Profile, { login, userReview}, res);
+  console.log(userReview.length);
+  renderTemplate(Profile, { login, userReview }, res);
 });
 
 profileRouter.get('/:id/edit', async (req, res) => {
@@ -27,7 +27,7 @@ profileRouter.get('/:id/edit', async (req, res) => {
   renderTemplate(Edit, { login, edit }, res);
 });
 
-profileRouter.put('/:id/update', async (req, res) => {
+profileRouter.put('/:id', async (req, res) => {
   const { login } = req.session;
   const { id } = req.params;
   const { name, place, type, averagePrice, description, pictureLink, mapPoint } = req.body;
@@ -39,20 +39,20 @@ profileRouter.put('/:id/update', async (req, res) => {
       avg: averagePrice,
       description,
       picture: pictureLink,
-      map: mapPoint,
+      map: mapPoint
     },
     {
       where: { id }
     }
   );
-  res.json({ msg: "Review has been edited successfully" });
+  res.json({ msg: 'Review has been edited successfully' });
 });
 
-profileRouter.get('/:id/delete', async (req, res) => {
+profileRouter.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     await Review.destroy({ where: { id } });
-    res.redirect('/profile')
+    res.json({ msg: 'Review has been deleted successfully' });
   } catch (error) {
     console.log(error);
   }

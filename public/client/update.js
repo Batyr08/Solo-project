@@ -7,7 +7,7 @@ form.addEventListener('submit', async (e) => {
   const res = Object.fromEntries(data);
   console.log(res);
   try {
-    const response = await fetch(`/profile/${res.id}/update`, {
+    const response = await fetch(`/profile/${res.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

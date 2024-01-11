@@ -1,6 +1,6 @@
 const React = require('react');
 
-function Card({ reviewId, nameId, placeId, typeId, avgId, descriptionId, pictureId, mapId }) {
+function CardMain({ reviewId, nameId, placeId, typeId, avgId, descriptionId, pictureId, mapId, login}) {
   return (
     <div className="card">
       <div className="card-body">
@@ -14,12 +14,16 @@ function Card({ reviewId, nameId, placeId, typeId, avgId, descriptionId, picture
         <li className="list-group-item">Average price: {avgId}</li>
         <li className="list-group-item">Map point: {mapId}</li>
       </ul>
-      <button type="button" className="btn btn-danger" id={reviewId}>Delete review</button>
-      <a href={`/profile/${reviewId}/edit`} className="btn btn-secondary">
-        Edit review
-      </a> 
+      {
+      login ? (
+        <button type="button" className="btn btn-primary" id={reviewId}>
+          Add comment
+        </button>
+      ) :
+      (<p>Please log in to add a comment.</p>)
+      }
     </div>
   );
 }
 
-module.exports = Card;
+module.exports = CardMain;
