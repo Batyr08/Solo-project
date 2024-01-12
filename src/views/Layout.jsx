@@ -44,11 +44,6 @@ function Layout({ children, login }) {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/map">
-                      Map
-                    </a>
-                  </li>
-                  <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="/chat">
                       Chat
                     </a>

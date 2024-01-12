@@ -22,7 +22,8 @@ const mainRouter = require('./src/routes/main')
 const regRouter = require('./src/routes/reg')
 const logRouter = require('./src/routes/log')
 const profileRouter = require('./src/routes/profile')
-const reviewRouter = require('./src/routes/review')
+const reviewRouter = require('./src/routes/review');
+const aboutRouter = require('./src/routes/about');
 
 const app = express();
 const PORT = 3300;
@@ -37,6 +38,7 @@ app.use('/register', secureRoute, regRouter)
 app.use('/login', secureRoute, logRouter)
 app.use('/profile', profileRouter)
 app.use('/addreview', reviewRouter)
+app.use('/info', aboutRouter)
 app.listen(PORT, () => {
   console.log(`Сервер запущен на порту: ${PORT}`);
 });
