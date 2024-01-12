@@ -1,4 +1,4 @@
-html {
+/* html {
   height: 100%;
   background-color: hsla(200,40%,30%,.4);
   background-image:   
@@ -32,7 +32,7 @@ html {
       1000px 100%,
       400px 0;
     }
-  }
+  } */
 
   #navbar {
     background-color: transparent !important;
@@ -73,7 +73,7 @@ html {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: gray;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
@@ -96,7 +96,7 @@ html {
   }
   
   button {
-    background-color: #8b4513; /* Saddle Brown */
+    background-color: blueviolet; /* Saddle Brown */
     color: #fff;
     padding: 10px 15px;
     border: none;

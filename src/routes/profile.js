@@ -7,7 +7,6 @@ const { User, Review } = require('../../db/models');
 const profileRouter = express.Router();
 
 profileRouter.get('/', async (req, res) => {
-  console.log(req.session);
   const { login } = req.session;
   const user = await User.findOne({ where: { login } });
   if (!user) {
@@ -16,7 +15,6 @@ profileRouter.get('/', async (req, res) => {
   const userReview = await Review.findAll({
     where: { user_id: user.id }
   });
-  console.log(userReview.length);
   renderTemplate(Profile, { login, userReview }, res);
 });
 

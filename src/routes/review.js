@@ -28,7 +28,6 @@ reviewRouter.post('/', async (req, res) => {
       map: mapPoint,
       user_id: user.id
     });
-    console.log(newReview);
     res.json({ msg: "Review added successfully" });
   } catch (error) {
     console.log(error);

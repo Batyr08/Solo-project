@@ -10,6 +10,7 @@ function Layout({ children, login }) {
         <link rel="stylesheet" href="/css/styles.css" />
         <link rel="stylesheet" href="/css/card.css" />
         <link rel="stylesheet" href="/css/profile.css" />
+        <link rel="stylesheet" href="/css/yandex.css" />
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -24,9 +25,10 @@ function Layout({ children, login }) {
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
           crossOrigin="anonymous"></script>
+
       </head>
       <body>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light" id='navbar'>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
           <div className="container-fluid">
             <div className="collapse navbar-collapse" id="navbarNav">
               {login ? (
@@ -39,6 +41,11 @@ function Layout({ children, login }) {
                   <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="/profile">
                       Profile
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link active" aria-current="page" href="/map">
+                      Map
                     </a>
                   </li>
                   <li className="nav-item">

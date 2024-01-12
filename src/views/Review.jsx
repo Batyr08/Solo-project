@@ -27,6 +27,10 @@ function Review({ login }) {
           <label htmlFor="mapPoint">Map Point:</label>
           <input type="text" id="mapPoint" name="mapPoint" required />
           <br />
+          <div id="ymap" className="ymap">
+          <script src="https://api-maps.yandex.ru/2.1/?apikey=3a9895ca-9810-4abe-886a-271245cc4612&lang=ru_RU"/>
+          <script src="/api/yandex.js"></script>
+          </div>
           <button type="submit">Submit</button>
         </form>
       </Layout>
